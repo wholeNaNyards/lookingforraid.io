@@ -1,0 +1,70 @@
+.feed {
+  background-color: #182d45;
+  margin-bottom: 20px;
+  margin-top: 1.5rem;
+  color: #fff;
+}
+
+.title__container {
+  background-color: #243a54;
+  padding: 15px;
+  border: 1px solid #374b63;
+}
+
+.title__title {
+  margin: 0;
+}
+
+.content__container {
+  border: 1px solid #374b63;
+  border-top: none;
+  padding: 20px 30px;
+}
+
+.form-dropdown {
+  color: #555555;
+  font-size: 16px;
+  width: 50%;
+  height: 2.25rem;
+}
+
+.form-input {
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 0px !important;
+  background-color: #15283d;
+  border-color: #314255;
+  color: #596978;
+  border: 1px solid transparent;
+}
+
+.form-input input[type='radio'],
+.form-input input[type='checkbox'] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
+
+.form-input:hover {
+  background-color: #243a54;
+  color: #fff;
+  border-color: #374b63;
+}
+
+.form-input.active {
+  border-color: #4dc6ff;
+  color: #4dc6ff;
+}
+
+.form-input.active:hover {
+  border-color: #4dc6ff;
+  color: #4dc6ff;
+  background-color: #15283d;
+}
+
+.form-input__icon {
+  margin-right: 5px;
+}

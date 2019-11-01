@@ -1,0 +1,45 @@
+.form-button {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+.form-button__content {
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 0px !important;
+  background-color: #15283d;
+  border-color: #314255;
+  color: #596978;
+  border: 1px solid transparent;
+}
+
+.form-button__content:hover {
+  background-color: #243a54;
+  color: #fff;
+  border-color: #374b63;
+}
+
+.form-button__content.active {
+  border-color: #4dc6ff;
+  color: #4dc6ff;
+}
+
+.form-button__content.active:hover {
+  border-color: #4dc6ff;
+  color: #4dc6ff;
+  background-color: #15283d;
+}
+
+.form-button__icon {
+  margin-right: 5px;
+}
+
+.form-button input[type='radio'],
+.form-button input[type='checkbox'] {
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+}
