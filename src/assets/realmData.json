@@ -2,6 +2,14 @@
   "us": [
     {
       "key": {
+        "href": ""
+      },
+      "name": "---- Any ----",
+      "id": 1,
+      "slug": "any"
+    },
+    {
+      "key": {
         "href": "https://us.api.blizzard.com/data/wow/realm/1?namespace=dynamic-us"
       },
       "name": "Lightbringer",
