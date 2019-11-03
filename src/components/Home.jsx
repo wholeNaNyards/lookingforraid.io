@@ -8,6 +8,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
 import logo from '../assets/logo.png';
+import alertExampleImage from '../assets/alert-example.png';
 
 import FeedForm from './FeedForm';
 
@@ -30,29 +31,54 @@ const Home = () => {
     ) {
       setIsLoading(true);
 
-      const data = {
-        code: queryObject.code,
-        alertSettings: initialFeed
-      };
+      // Check if we are adding or deleting alert
+      const deleteStatus = localStorage.getItem('deleteStatus');
 
       const apiName = 'alerts';
       const path = '/alerts';
 
-      const config = {
-        body: data
-      };
+      if (deleteStatus) {
+        const data = {
+          code: queryObject.code
+        };
 
-      API.post(apiName, path, config)
-        .then(() => {
-          localStorage.removeItem('stateParameter');
-          toast.success('Successfully created alert.');
-        })
-        .catch(() => {
-          toast.error('Something went wrong. Please try again.');
-        })
-        .finally(() => {
-          setIsLoading(false);
-        });
+        const config = {
+          body: data
+        };
+
+        API.del(apiName, path, config)
+          .then(() => {
+            toast.success('Successfully deleted alert.');
+          })
+          .catch(() => {
+            toast.error('Something went wrong. Please try again.');
+          })
+          .finally(() => {
+            localStorage.removeItem('deleteStatus');
+            setIsLoading(false);
+          });
+      } else {
+        const data = {
+          code: queryObject.code,
+          alertSettings: initialFeed
+        };
+
+        const config = {
+          body: data
+        };
+
+        API.post(apiName, path, config)
+          .then(() => {
+            toast.success('Successfully created alert.');
+          })
+          .catch(() => {
+            toast.error('Something went wrong. Please try again.');
+          })
+          .finally(() => {
+            localStorage.removeItem('stateParameter');
+            setIsLoading(false);
+          });
+      }
     }
   }, [location]);
 
@@ -75,12 +101,14 @@ const Home = () => {
                       <a href="https://www.wowprogress.com/">WoWProgress</a>.
                     </p>
                   </Col>
-                  <Col xs={12} lg={6}>
-                    <img
-                      className="demo-img rounded img-fluid"
-                      alt="Example of a webhook sent to Discord showing that a raider is looking for a guild."
-                      src="http://lorempixel.com/800/400/"
-                    />
+                  <Col xs lg className="img__container">
+                    <a href={alertExampleImage}>
+                      <img
+                        className="demo-img img-fluid"
+                        alt="Example of a webhook sent to Discord showing that a raider is looking for a guild."
+                        src={alertExampleImage}
+                      />
+                    </a>
                   </Col>
                 </Row>
                 <FeedForm data={feedData} />

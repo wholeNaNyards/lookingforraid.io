@@ -7,7 +7,12 @@ import './Header.css';
 const Header = () => (
   <Navbar collapseOnSelect className="custom-navbar" sticky="top">
     <Navbar.Brand>
-      <Link to="/">
+      <Link
+        to="/"
+        onClick={() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }}
+      >
         <em>Lfr.io</em>
       </Link>
     </Navbar.Brand>

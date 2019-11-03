@@ -1,4 +1,11 @@
 .demo-img {
   max-width: 600;
   max-height: 600;
+  border: 1px solid #374b63;
+  border-radius: 0.1rem;
+}
+@media (min-width: 768px) {
+  .img__container {
+    padding-top: 0.5rem;
+  }
 }

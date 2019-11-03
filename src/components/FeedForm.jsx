@@ -8,6 +8,8 @@ import feedReducer from '../reducers/feedReducer';
 
 import realmData from '../assets/realmData.json';
 
+import garbageCan from '../assets/garbage_32x32.png';
+
 import iconAlliance from '../assets/alliance_15x15.png';
 import iconHorde from '../assets/horde_15x15.png';
 import iconFactionBoth from '../assets/faction-both_15x15.png';
@@ -153,10 +155,33 @@ const FeedForm = ({ data = initialState }) => {
     window.location.href = discordUrl;
   };
 
+  const handleDelete = event => {
+    event.preventDefault();
+
+    localStorage.setItem('deleteStatus', true);
+    handleSubmit(event);
+  };
+
   return (
     <div className="feed">
       <div className="title__container">
-        <h2 className="title__title">Raider LFR Alert Settings:</h2>
+        <Col>
+          <Row>
+            <Col xs={10}>
+              <h2 className="title__title">Raider LFR Alert Settings:</h2>
+            </Col>
+            <Col xs={2}>
+              <Button
+                onClick={handleDelete}
+                className="deleteButton"
+                type="button"
+                variant="danger"
+              >
+                <img src={garbageCan} alt="Delete Discord webhook" />
+              </Button>
+            </Col>
+          </Row>
+        </Col>
       </div>
       <div className="content__container">
         <Form onSubmit={handleSubmit}>
@@ -279,7 +304,7 @@ const FeedForm = ({ data = initialState }) => {
               />
             </>
           )}
-          <Button type="submit">Save</Button>
+          <Button type="submit">Create Alert</Button>
         </Form>
       </div>
     </div>
