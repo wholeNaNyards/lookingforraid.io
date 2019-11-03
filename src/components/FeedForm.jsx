@@ -142,7 +142,7 @@ const FeedForm = ({ data = initialState }) => {
     event.preventDefault();
 
     const clientId = '594766529439203332';
-    const redirectUri = 'http://localhost:3000';
+    const redirectUri = 'https://dev.lookingforraid.io';
     const stateParameter = generateRandomString();
     localStorage.setItem('stateParameter', stateParameter);
 
