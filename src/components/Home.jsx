@@ -6,6 +6,7 @@ import { API } from 'aws-amplify';
 import SyncLoader from 'react-spinners/SyncLoader';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import ReactGA from 'react-ga';
 
 import logo from '../assets/logo.png';
 import alertExampleImage from '../assets/alert-example.png';
@@ -38,6 +39,11 @@ const Home = () => {
       const path = '/alerts';
 
       if (deleteStatus) {
+        ReactGA.event({
+          category: 'User',
+          action: 'Delete Alert'
+        });
+
         const data = {
           code: queryObject.code
         };
@@ -58,6 +64,11 @@ const Home = () => {
             setIsLoading(false);
           });
       } else {
+        ReactGA.event({
+          category: 'User',
+          action: 'Create Alert'
+        });
+
         const data = {
           code: queryObject.code,
           alertSettings: initialFeed
