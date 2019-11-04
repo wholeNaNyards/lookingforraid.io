@@ -13,7 +13,7 @@ const Header = () => (
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
       >
-        <em>Lfr.io</em>
+        LFR
       </Link>
     </Navbar.Brand>
   </Navbar>
